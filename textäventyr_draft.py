@@ -28,7 +28,6 @@ while True:
         print("Ogiltigt val! Försök igen.")
 
 print("Du är fast i en fängelsecell och måste fly från fängelset. Du måste vara försiktig för att inte bli upptäckt av vakterna.")
-
 def cell():
     while True:
         print("\nDu är i cellen. Vad vill du göra?")
@@ -41,11 +40,10 @@ def cell():
             print("Dörren är låst. Hitta nyckeln.")
         elif user_input == "2":
             print("Du kollar runt och hittar en nyckel. Du använder nyckeln för att öppna dörren.")
+            rum1()
             break
         else:
             print("Ogiltigt val! Försök igen.")
-
-cell()
 
 def rum1():
     while True:
@@ -66,6 +64,7 @@ def rum1():
             if action == "1":
                 print("Du försöker slå vakten men han slår dig till marken.")
                 print("Han lägger dig i handbojor och tar dig tillbaka till cellen.")
+                cell()  # Restart the game
                 break
             elif action == "2":
                 print("Du vänder dig om och går andra hållet.")
@@ -74,19 +73,34 @@ def rum1():
                 print("Du måste skynda dig för att om 1 minut så kommer larmet att slås på och vakterna kommer att veta vart du är.")
                 print("Ekvationen är: 5(2+1)^2.")
 
-            answer = input("Skriv in svaret på ekvationen: ")
+                answer = input("Skriv in svaret på ekvationen: ")
 
-            if answer == "45":
-                print("Du låser upp låset och går vidare.")
-                break
+                if answer == "45":
+                    print("Du låser upp låset och går vidare.")
+                    break
+                else:
+                    print("Fel svar! Försök igen.")
             else:
-                print("Fel svar! Försök igen.")
+                print("Ogiltigt val! Försök igen.")
+
+        elif user_input == "2":
+                print("Du går till vänster och hittar ett lås.")
+                print("Koden till låset är svaret till en matteekvation. Ekvationen står på tavlan bredvid dig.")
+                print("Du måste skynda dig för att om 1 minut så kommer larmet att slås på och vakterna kommer att veta vart du är.")
+                print("Ekvationen är: 5(2+1)^2.")
+
+                answer = input("Skriv in svaret på ekvationen: ")
+
+                if answer == "45":
+                    print("Du låser upp låset och går vidare.")
+                    break
+                else:
+                    print("Fel svar! Försök igen.")
         else:
             print("Ogiltigt val! Försök igen.")
-            break
 
-
-rum1()
+# Start the game
+cell()
 
 def rum2():
     while True:
@@ -108,6 +122,11 @@ def rum2():
 rum2()
 
 import random
+print("Du är nu i rum 3. ")
+print("Du är ett steg från att fly från fängelset.")
+print("Men det finns en vakt framför dörren.")
+print("Det är för sent att vända sig om, ditt enda val är att slåss mot vakten.")
+print("Vakten ser dig och förbereder sig för en fight.")
 
 def validate_attack_input():
     while True:
@@ -133,12 +152,6 @@ def rum3():
     enemy_fist_hit_chance = 85   # 85% chance to hit
     player_kick_hit_chance = 70  # 70% chance to hit
     enemy_kick_hit_chance = 65   # 65% chance to hit
-
-    print("Du är nu i rum 3. ")
-    print("Du är ett steg från att fly från fängelset.")
-    print("Men det finns en vakt framför dörren.")
-    print("Det är för sent att vända sig om, ditt enda val är att slåss mot vakten.")
-    print("Vakten ser dig och förbereder sig för en fight.")
 
     while player_health > 0 and enemy_health > 0:
         print(f"\nDin hälsa: {player_health}")

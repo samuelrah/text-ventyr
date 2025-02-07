@@ -37,8 +37,8 @@ def cell():
         if user_input == "1":
             print("Dörren är låst. Hitta nyckeln.")
         elif user_input == "2":
-            print("Du kollar runt och hittar en nyckel.")
-            rum1()  # Proceed to the next room
+            print("Du kollar runt och hittar en nyckel. Du använder nyckeln för att öppna dörren.")
+            rum1()
             break
         else:
             print("Ogiltigt val! Försök igen.")
@@ -62,11 +62,22 @@ def rum1():
             if action == "1":
                 print("Du försöker slå vakten men han slår dig till marken.")
                 print("Han lägger dig i handbojor och tar dig tillbaka till cellen.")
-                cell()  # Restart from the cell
+                cell()  # Restart the game
                 break
             elif action == "2":
                 print("Du vänder dig om och går andra hållet.")
-                # Continue the game (stay in the loop)
+                print("Du går till vänster och hittar ett lås.")
+                print("Koden till låset är svaret till en matteekvation. Ekvationen står på tavlan bredvid dig.")
+                print("Du måste skynda dig för att om 1 minut så kommer larmet att slås på och vakterna kommer att veta vart du är.")
+                print("Ekvationen är: 5(2+1)^2.")
+
+                answer = input("Skriv in svaret på ekvationen: ")
+
+                if answer == "45":
+                    print("Du låser upp låset och går vidare.")
+                    break
+                else:
+                    print("Fel svar! Försök igen.")
             else:
                 print("Ogiltigt val! Försök igen.")
         elif user_input == "2":
@@ -79,8 +90,7 @@ def rum1():
 
             if answer == "45":
                 print("Du låser upp låset och går vidare.")
-                # Add logic to proceed to the next part of the game
-                return  # Exit the function (or replace with logic for the next room)
+                break
             else:
                 print("Fel svar! Försök igen.")
         else:
