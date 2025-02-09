@@ -1,8 +1,6 @@
 import os
 import random
 
-
-
 # Define the menu options
 menu = ("1", "2", "3")
 
@@ -11,7 +9,7 @@ while True:
     print("\nMENY\n")
     print("1- Starta spelet")
     print("2- Regler")
-    print("3- Credits")
+    print("3- avsluta spelet")
 
     # Prompt user input
     user_input = input("Skriv numret av ett av valen: ")
@@ -21,20 +19,24 @@ while True:
         if user_input == "1":
             break  # Exit the menu loop
         elif user_input == "2":
-            print("\nRegler: Följ instruktionerna för att spela spelet.")
+            print("\nRegler: I detta spelet är du en fånge som måste fly från fängelset.")
+            print("Du måste lösa olika problem och utmaningar för att fly. Om du gör några fel så måste du börja om.")
+            print("antingen i det rumet du är i eller till början av spelet.")
+            print("Lycka till!")
         elif user_input == "3":
-            print("\nCredits: Samuel Rahsepar.")
+            print("Spelet avslutas.")
+            os._exit(0)  # Exit the program
     else:
         print("Ogiltigt val! Försök igen.")
 
-print("Du är fast i en fängelsecell och måste fly från fängelset. Du måste vara försiktig för att inte bli upptäckt av vakterna.")
+print("\nDu är fast i en fängelsecell och måste fly från fängelset. Du måste vara försiktig för att inte bli upptäckt av vakterna.")
 def cell():
     while True:
         print("\nDu är i cellen. Vad vill du göra?")
         print("1- Öppna dörren")
         print("2- Kolla runt i cellen")
 
-        user_input = input("Skriv numret av ett av valen: ")
+        user_input = input("\nSkriv numret av ett av valen: ")
 
         if user_input == "1":
             print("Dörren är låst. Hitta nyckeln.")
@@ -51,29 +53,29 @@ def rum1():
         print("1- Gå till höger")
         print("2- Gå till vänster")
 
-        user_input = input("Skriv numret av ett av valen: ")
+        user_input = input("\nSkriv numret av ett av valen: ")
 
         if user_input == "1":
-            print("Du går till höger och hittar en vakt.")
+            print("\nDu går till höger och hittar en vakt.")
             print("Vill du:")
             print("1- Slå vakten")
             print("2- Vända dig om och gå andra hållet")
 
-            action = input("Skriv numret av ett av valen: ")
+            action = input("\nSkriv numret av ett av valen: ")
 
             if action == "1":
-                print("Du försöker slå vakten men han slår dig till marken.")
+                print("\nDu försöker slå vakten men han slår dig till marken.")
                 print("Han lägger dig i handbojor och tar dig tillbaka till cellen.")
                 cell()  # Restart the game
                 break
             elif action == "2":
-                print("Du vänder dig om och går andra hållet.")
+                print("\nDu vänder dig om och går andra hållet.")
                 print("Du går till vänster och hittar ett lås.")
                 print("Koden till låset är svaret till en matteekvation. Ekvationen står på tavlan bredvid dig.")
                 print("Du måste skynda dig för att om 1 minut så kommer larmet att slås på och vakterna kommer att veta vart du är.")
                 print("Ekvationen är: 5(2+1)^2.")
             
-            answer = input("Skriv svaret på ekvationen: ")
+            answer = input("\nSkriv svaret på ekvationen: ")
             
             if answer == "45":
                 print("Du skrev korrekt svar och går vidare.")
@@ -83,12 +85,12 @@ def rum1():
                 continue
 
         elif user_input == "2":
-            print("Du går till vänster och hittar ett lås.")
+            print("\nDu går till vänster och hittar ett lås.")
             print("Koden till låset är svaret till en matteekvation. Ekvationen står på tavlan bredvid dig.")
             print("Du måste skynda dig för att om 1 minut så kommer larmet att slås på och vakterna kommer att veta vart du är.")
             print("Ekvationen är: 5(2+1)^2.")
             
-            answer = input("Skriv svaret på ekvationen: ")
+            answer = input("\nSkriv svaret på ekvationen: ")
             
             if answer == "45":
                 print("Du skrev korrekt svar och går vidare.")
@@ -103,27 +105,28 @@ def rum1():
 # Start the game
 cell()
 
+print("\nDu är nu i rum 2. ")
+print("För att fortsätta måste du skriva lösenordet till en dörr.")
+print("Lösenordet är en gåta. gåtan står på väggen framför dig.")
+print("det står: USA:s 22:a och 24:e presidenter hade samma föräldrar men var inte bröder. Hur kan detta vara möjligt?")
+
+
 def rum2():
     while True:
-        print("Du är nu i rum 2. ")
-        print("För att fortsätta måste du skriva lösenordet till en dörr.")
-        print("Lösenordet är en gåta. gåtan står på väggen framför dig.")
-        print("det står: USA:s 22:a och 24:e presidenter hade samma föräldrar men var inte bröder. Hur kan detta vara möjligt?")
 
-        answer = input("Skriv in svaret på gåtan: ")
+        answer = input("\nSkriv in svaret på gåtan: ")
 
-        if answer == "samma person" or answer == "det är samma person" or answer == "det var samma person.":
+        if answer == "samma person" or answer == "det är samma person" or answer == "det var samma person":
             print("du skrev korekt svar och går vidare.")
             break
-        elif print("Fel svar! Försök igen."):
-            break
         else:
-            print("Ogiltigt val! Försök igen.")
+            print("Fel svar! Försök igen.")
+
 
 rum2()
 
 import random
-print("Du är nu i rum 3. ")
+print("\nDu är nu i rum 3. ")
 print("Du är ett steg från att fly från fängelset.")
 print("Men det finns en vakt framför dörren.")
 print("Det är för sent att vända sig om, ditt enda val är att slåss mot vakten.")
@@ -185,12 +188,12 @@ def rum3():
 
         ### MOTSTÅNDAREN ATTACKERAR ###
         if enemy_health > 0:  # Only attack if the enemy is still alive
-            print("\nDet är motståndarens tur att attackera.")
+            print("\nDet är vaktens tur att attackera.")
             motståndaren_attack = random.choice([1, 2])
             slump_tal = random.randint(1, 100)
 
             if motståndaren_attack == 1:
-                print("Motståndaren försöker slå dig.")
+                print("Vakten försöker slå dig.")
                 if slump_tal <= enemy_fist_hit_chance:
                     print("Och träffar!")
                     player_health -= enemy_fist_damage
@@ -199,7 +202,7 @@ def rum3():
                     print("Och missar.")
 
             elif motståndaren_attack == 2:
-                print("Motståndaren försöker sparka dig.")
+                print("Vakten försöker sparka dig.")
                 if slump_tal <= enemy_kick_hit_chance:
                     print("Och träffar!")
                     player_health -= enemy_kick_damage
@@ -210,9 +213,11 @@ def rum3():
     ### GAME OVER LOGIC ###
     if player_health <= 0 and enemy_health <= 0:
         print("\nDet blev oavgjort. Båda förlorade.")
+        cell()
     elif player_health <= 0:
-        print("\nMotståndaren vann. Du förlorade.")
+        print("\nVakten vann. Du förlorade.")
+        cell()
     elif enemy_health <= 0:
-        print("\nDU VANN! Du besegrade din motståndare och är fri.")
+        print("\nDU VANN! Du besegrade vakten och är fri.")
 
 rum3()
