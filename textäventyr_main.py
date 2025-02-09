@@ -19,10 +19,8 @@ while True:
         if user_input == "1":
             break  # Exit the menu loop
         elif user_input == "2":
-            print("\nRegler: I detta spelet är du en fånge som måste fly från fängelset.")
-            print("Du måste lösa olika problem och utmaningar för att fly. Om du gör några fel så måste du börja om.")
-            print("antingen i det rumet du är i eller till början av spelet.")
-            print("Lycka till!")
+            file = open("README.txt", "r", encoding="utf-8")
+            print(file.read())
         elif user_input == "3":
             print("Spelet avslutas.")
             os._exit(0)  # Exit the program
