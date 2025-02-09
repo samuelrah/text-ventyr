@@ -72,30 +72,31 @@ def rum1():
                 print("Koden till låset är svaret till en matteekvation. Ekvationen står på tavlan bredvid dig.")
                 print("Du måste skynda dig för att om 1 minut så kommer larmet att slås på och vakterna kommer att veta vart du är.")
                 print("Ekvationen är: 5(2+1)^2.")
-
-                answer = input("Skriv in svaret på ekvationen: ")
-
-                if answer == "45":
-                    print("Du låser upp låset och går vidare.")
-                    break
-                else:
-                    print("Fel svar! Försök igen.")
+            
+            answer = input("Skriv svaret på ekvationen: ")
+            
+            if answer == "45":
+                print("Du skrev korrekt svar och går vidare.")
+                break
             else:
-                print("Ogiltigt val! Försök igen.")
+                print("Fel svar! Försök igen.")
+                continue
 
         elif user_input == "2":
-                print("Du går till vänster och hittar ett lås.")
-                print("Koden till låset är svaret till en matteekvation. Ekvationen står på tavlan bredvid dig.")
-                print("Du måste skynda dig för att om 1 minut så kommer larmet att slås på och vakterna kommer att veta vart du är.")
-                print("Ekvationen är: 5(2+1)^2.")
+            print("Du går till vänster och hittar ett lås.")
+            print("Koden till låset är svaret till en matteekvation. Ekvationen står på tavlan bredvid dig.")
+            print("Du måste skynda dig för att om 1 minut så kommer larmet att slås på och vakterna kommer att veta vart du är.")
+            print("Ekvationen är: 5(2+1)^2.")
+            
+            answer = input("Skriv svaret på ekvationen: ")
+            
+            if answer == "45":
+                print("Du skrev korrekt svar och går vidare.")
+                break
+            else:
+                print("Fel svar! Försök igen.")
+                continue
 
-                answer = input("Skriv in svaret på ekvationen: ")
-
-                if answer == "45":
-                    print("Du låser upp låset och går vidare.")
-                    break
-                else:
-                    print("Fel svar! Försök igen.")
         else:
             print("Ogiltigt val! Försök igen.")
 
